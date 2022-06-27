@@ -1,0 +1,35 @@
+{
+    "name": "zeleznypa/array-wrapper",
+    "description": "When the array structure needs to be more like an object for a while.",
+    "homepage": "https://github.com/zeleznypa/array-wrapper",
+    "keywords": ["interitty", "array"],
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Pavel Železný",
+            "email": "pavel.zelezny@interitty.org"
+        }
+    ],
+    "support": {
+        "email": "security@interitty.org",
+        "issues": "https://github.com/zeleznypa/array-wrapper/-/issues",
+        "source": "https://github.com/zeleznypa/array-wrapper"
+    },
+    "require": {
+        "php": "~8.1",
+        "dg/composer-cleaner": "~2.2"
+    },
+    "config": {
+        "classmap-authoritative": true,
+        "sort-packages": true,
+        "allow-plugins": {
+            "dg/composer-cleaner": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        }
+    }
+}
