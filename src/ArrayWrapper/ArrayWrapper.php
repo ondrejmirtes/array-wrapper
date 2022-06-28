@@ -17,9 +17,7 @@ use function preg_match;
 use function sprintf;
 
 /**
- * @template TKey of int|string
- * @template TValue
- * @template TInnerArray of array<TKey, TValue>
+ * @template TInnerArray of array
  * @implements ArrayAccess<key-of<TInnerArray>, value-of<TInnerArray>>
  * @suppressWarnings(PHPMD.TooManyPublicMethods)
  */
@@ -37,10 +35,9 @@ class ArrayWrapper implements ArrayAccess, Countable
     }
 
     /**
-     * Static factory
-     *
-     * @param TInnerArray<TKey, TValue> $array [OPTIONAL]
-     * @return self<key-of<TInnerArray>, value-of<TInnerArray>>
+     * @template UInnerArray of array
+     * @param UInnerArray $array [OPTIONAL]
+     * @return self<UInnerArray>
      */
     public static function create(array $array = [])
     {

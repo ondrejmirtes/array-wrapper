@@ -186,7 +186,7 @@ class ArrayWrapperTest extends TestCase
      * ArrayWrapper mock factory
      *
      * @param string[] $methods [OPTIONAL] List of mocked method names
-     * @return ArrayWrapper<int|string, mixed>&MockObject
+     * @return ArrayWrapper<array<mixed>>&MockObject
      */
     protected function createArrayWrapperMock(array $methods = []): MockObject
     {
