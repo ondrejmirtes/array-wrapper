@@ -29,6 +29,9 @@
     },
      "autoload-dev": {
         "psr-4": {
+			"ZeleznyPa\\ArrayWrapper\\PHPStan\\": [
+				"phpstan"
+			],
             "ZeleznyPa\\": [
                 "tests"
             ]
