@@ -44,8 +44,7 @@ class ArrayWrapper implements ArrayAccess, Countable
      */
     public static function create(array $array = [])
     {
-        $arrayWrapper = new self($array);
-        return $arrayWrapper;
+        return new self($array);
     }
 
     /**
@@ -63,17 +62,16 @@ class ArrayWrapper implements ArrayAccess, Countable
         }
         $method = isset($match['method']) ? $match['method'] : '';
         $offset = lcfirst(isset($match['offset']) ? $match['offset'] : '');
-        $return = null;
         if ($method === 'get') {
-            $return = $this->offsetGet($offset);
+            return $this->offsetGet($offset);
         } elseif (($method === 'has') || ($method === 'is')) {
-            $return = $this->offsetExists($offset);
+            return $this->offsetExists($offset);
         } elseif ($method === 'set') {
             $this->offsetSet($offset, $arguments[0]);
         } elseif ($method === 'unset') {
             $this->offsetUnset($offset);
         }
-        return $return;
+        return null;
     }
 
     /**
@@ -137,8 +135,7 @@ class ArrayWrapper implements ArrayAccess, Countable
      */
     public function offsetExists($offset): bool
     {
-        $result = $this->__isset((string) $offset);
-        return $result;
+        return $this->__isset((string) $offset);
     }
 
     /**
@@ -151,14 +148,12 @@ class ArrayWrapper implements ArrayAccess, Countable
     public function offsetGet($offset, $default = null): mixed
     {
         if ($this->__isset((string) $offset) === true) {
-            $result = $this->__get((string) $offset);
+            return $this->__get((string) $offset);
         } elseif (func_num_args() > 1) {
-            $result = $default;
+            return $default;
         } else {
-            $message = sprintf('Missing item "[%s]"', $offset);
-            throw new InvalidArgumentException($message);
+            throw new InvalidArgumentException(sprintf('Missing item "[%s]"', $offset));
         }
-        return $result;
     }
 
     /**
